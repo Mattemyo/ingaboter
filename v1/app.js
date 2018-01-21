@@ -1,71 +1,79 @@
 $(function() {
-  // ============  PARKING API ================= //
-  const weekdayNum = new Date().getDay();
-  const weekdays = [
-    "söndag",
-    "måndag",
-    "tisdag",
-    "onsdag",
-    "torsdag",
-    "fredag",
-    "lördag"
-  ];
-  // WEEEEEEEEK DAAAAAYS
-  const importantDays = [
-    {
-      key: "dayBeforeYesterday",
-      weekday: weekdays[weekdayNum === 0 ? 5 : weekdayNum - 2]
-    },
-    {
-      key: "yesterday",
-      weekday: weekdays[weekdayNum === 0 ? 6 : weekdayNum - 1]
-    },
-    { key: "today", weekday: weekdays[weekdayNum] },
-    {
-      key: "tomorrow",
-      weekday: weekdays[weekdayNum === 6 ? 0 : weekdayNum + 1]
-    },
-    {
-      key: "dayAfterTomorrow",
-      weekday: weekdays[weekdayNum === 6 ? 1 : weekdayNum + 2]
-    }
-  ];
-
-  // FIRST AND SECOND PART OF URL
-  const firstStockUrl =
-    "https://openparking.stockholm.se/LTF-Tolken/v1/servicedagar/weekday/";
-  const lastStockUrl = "?outputFormat=json&apiKey=";
-  const sthmlApiKey = "31be1dc0-8e91-41ff-b9f3-33fe1208c1d6&maxFeatures=5";
-  // ====== REQUEST YESTERDAY'S, TODAY'S, AND TOMORROWS INFO ==== //
-  importantDays.map((importantDay, i) => {
-    $.ajax({
-      type: "GET",
-      url: firstStockUrl + importantDay.weekday + lastStockUrl + sthmlApiKey,
-      dataType: "jsonp",
-      async: false
-    }).done(function(data) {
-      appendToUl(data.features, importantDay);
-      console.log(data.features[0]["geometry"]["coordinates"], i);
-    });
-  });
-  // ====== ADD ELEMENTS TO LIST ===== //
-  appendToUl = (data, importantDay) => {
-    data.forEach(element => {
-      $(`div.omraden ul[data-day=${importantDay.key}]`).prepend(
-        `<li>${element.properties.ADDRESS}</li>`
-      );
-    });
-  };
-
-
-
-
-
-  
-  // ============= GOOGLE MAPS API =========== //
-  const googleApiKey = "AIzaSyBWagNfi1z8VDkcHSS2dXlzgTPpDNby3Qg";
-  // MAP
   function initAutocomplete() {
+    // ============  PARKING API ================= //
+    const weekdayNum = new Date().getDay();
+    const weekdays = [
+      "söndag",
+      "måndag",
+      "tisdag",
+      "onsdag",
+      "torsdag",
+      "fredag",
+      "lördag"
+    ];
+
+    const importantDays = [
+      {
+        key: "dayBeforeYesterday",
+        weekday: weekdays[weekdayNum === 0 ? 5 : weekdayNum - 2],
+        color: "lightgreen"
+      },
+      {
+        key: "yesterday",
+        weekday: weekdays[weekdayNum === 0 ? 6 : weekdayNum - 1],
+        color: "green"
+      },
+      { key: "today", weekday: weekdays[weekdayNum], color: "red" },
+      {
+        key: "tomorrow",
+        weekday: weekdays[weekdayNum === 6 ? 0 : weekdayNum + 1],
+        color: "red"
+      },
+      {
+        key: "dayAfterTomorrow",
+        weekday: weekdays[weekdayNum === 6 ? 1 : weekdayNum + 2],
+        color: "orange"
+      }
+    ];
+
+    // FIRST AND SECOND PART OF URL
+    const maxFeatures = 1000;
+    const firstStockUrl =
+      "https://openparking.stockholm.se/LTF-Tolken/v1/servicedagar/weekday/";
+    const lastStockUrl = "?outputFormat=json&apiKey=";
+    const sthmlApiKey = "31be1dc0-8e91-41ff-b9f3-33fe1208c1d6&maxFeatures="+maxFeatures;
+    // ====== REQUEST YESTERDAY'S, TODAY'S, AND TOMORROWS INFO ==== //
+    importantDays.map((importantDay, i) => {
+      $.ajax({
+        type: "GET",
+        url: firstStockUrl + importantDay.weekday + lastStockUrl + sthmlApiKey,
+        dataType: "jsonp",
+        async: false
+      }).done(function(data) {
+        if (!data) {
+          return;
+        }
+        colorize(data.features, importantDay);
+
+      });
+    });
+
+    // ====== ADD ELEMENTS TO LIST ===== //
+    colorize = (features, importantDay) => {
+      features.forEach(feature => {
+        // $(`div.omraden ul[data-day=${importantDay.key}]`).prepend(
+        //   `<li >${feature.properties.ADDRESS}</li>`
+        // );
+        // CALL FUNCTION TO DRAW A LINE WITH SPECIFIC COLOR
+        console.log(importantDay.color, feature.geometry.coordinates);
+        colorizeStreet(importantDay.color, feature.geometry.coordinates);
+      });
+    };
+
+    const googleApiKey = "AIzaSyBWagNfi1z8VDkcHSS2dXlzgTPpDNby3Qg";
+    // MAP
+    // ============= GOOGLE MAPS API =========== //
+
     var map = new google.maps.Map(document.getElementById("map"), {
       // Stockholm in the Center
       center: {
@@ -137,23 +145,29 @@ $(function() {
       map.fitBounds(bounds);
     });
 
-    // DRAW LIGHT GREEN LINES ON DAY BEFORE YESTERDAY
-    var flightPlanCoordinates = [
-      { lat: 37.772, lng: -122.214 },
-      { lat: 21.291, lng: -157.821 },
-      { lat: -18.142, lng: 178.431 },
-      { lat: -27.467, lng: 153.027 }
-    ];
-    var flightPath = new google.maps.Polyline({
-      path: flightPlanCoordinates,
-      geodesic: true,
-      strokeColor: "#FF0000",
-      strokeOpacity: 1.0,
-      strokeWeight: 2
-    });
+    // DRAW LINES OF DIFFERENT COLORS DEPENDING ON DAY
+    function colorizeStreet(color, coords) {
+      const streetCoordinates = [];
 
-    flightPath.setMap(map);
+      coords.forEach(pair => {
+        const obj =  {
+          lat : pair[1],
+          lng : pair[0]
+        }
+
+        streetCoordinates.push(obj);
+      });
+      console.log(streetCoordinates);
+      const coloredPath = new google.maps.Polyline({
+        path: streetCoordinates,
+        geodesic: true,
+        strokeColor: color,
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+      });
+
+      coloredPath.setMap(map);
+    }
   }
-
   initAutocomplete();
 });
