@@ -51,8 +51,12 @@
 
     <div class="container-fluid">
 
-        <input type="text" id="pac-input" class="controls" placeholder="Sök Här!">
-        <div id="map"></div>
+        <div class="fullMap row">
+            
+            <input type="text" id="pc-input" class="controls form-control col-md-12" placeholder="Sök Här!">
+
+            <div id="map" class="col-md-12"></div>
+        </div>
 
         <script src="app.js"></script>
     </div>
@@ -62,15 +66,15 @@
         function initAutocomplete() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                    lat: -33.8688,
-                    lng: 151.2195
+                    lat: 59.33,
+                    lng: 18.06
                 },
-                zoom: 13,
+                zoom: 10,
                 mapTypeId: 'roadmap'
             });
 
             // Create the search box and link it to the UI element.
-            var input = document.getElementById('pac-input');
+            var input = document.getElementById('pc-input');
             var searchBox = new google.maps.places.SearchBox(input);
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
