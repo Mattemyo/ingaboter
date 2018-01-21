@@ -6,43 +6,136 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>API Parkering</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script src="app.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.min.css'
+    />
 </head>
 
 <body>
 
     <div class="omraden">
-        <h3>Städdag i förrgår <span></span></h3>
+        <h3>Städdag i förrgår
+            <span></span>
+        </h3>
         <ul data-day="dayBeforeYesterday">
         </ul>
         <hr>
 
-        <h3>Städdag igår <span></span></h3>
+        <h3>Städdag igår
+            <span></span>
+        </h3>
         <ul data-day="yesterday">
         </ul>
         <hr>
 
-        <h3>Städdag idag <span></span></h3>
+        <h3>Städdag idag
+            <span></span>
+        </h3>
         <ul data-day="today">
         </ul>
         <hr>
-        <h3>Städdag imorgon <span></span></h3>
+        <h3>Städdag imorgon
+            <span></span>
+        </h3>
         <ul data-day="tomorrow">
         </ul>
         <hr>
-        <h3>Städdag i övermorgon <span></span></h3>
+        <h3>Städdag i övermorgon
+            <span></span>
+        </h3>
         <ul data-day="dayAfterTomorrow">
         </ul>
 
     </div>
 
-<div id="map">
-    
-</div>
+    <div class="container-fluid">
 
+        <input type="text" id="pac-input" class="controls" placeholder="Sök Här!">
+        <div id="map"></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWagNfi1z8VDkcHSS2dXlzgTPpDNby3Qg&callback=initMap" async defer></script>
+        <script src="app.js"></script>
+    </div>
+    <!-- ===========   GOOOGLE MAPS API ======== -->
+    <script>
+        // MAP
+        function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: -33.8688,
+                    lng: 151.2195
+                },
+                zoom: 13,
+                mapTypeId: 'roadmap'
+            });
+
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function () {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function () {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function (marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function (place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWagNfi1z8VDkcHSS2dXlzgTPpDNby3Qg&libraries=places&callback=initAutocomplete"
+        async defer></script>
+</body>
+
+</html>
+</script>
+
 </body>
 
 </html>

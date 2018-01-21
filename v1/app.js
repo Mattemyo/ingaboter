@@ -68,12 +68,7 @@ $(function() {
 // ============= GOOGLE MAPS API =========== //
 const googleApiKey = "AIzaSyBWagNfi1z8VDkcHSS2dXlzgTPpDNby3Qg";
 
-let map;
-function initMap() {
-  map = new googleApiKey.maps.Map($('#map'), {
-    center: {lat: }
-  })
-}
+
 
 
 });
