@@ -1,8 +1,5 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+* {
+    box-sizing: border-box;
 }
 
 div.container-fluid {
@@ -11,24 +8,24 @@ div.container-fluid {
 }
 
 div.fullMap.row {
-    margin: 20px;
-    height: 500px;
-    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
-    
+  margin: 20px;
+  height: 500px;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 div.fullMap.row input#pc-input {
-    width: 50%;
-    margin-top: 5px;
-    border: none;
-    padding: none;
-    font-size: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 1px 1px 80px 1px rgba(0, 0, 0, 0.438);
-    height: 40px;
+  width: 50%;
+  margin-top: 5px;
+  border: none;
+  padding: none;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 1px 1px 80px 1px rgba(0, 0, 0, 0.438);
+  height: 40px;
 }
 
 #map {
   height: 100%;
+  border-radius: 5px;
 }
-
