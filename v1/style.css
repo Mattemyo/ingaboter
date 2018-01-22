@@ -3,16 +3,19 @@
 }
 
 nav {
-  height
+  height: 60px;
+  z-index: 50;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
 div.container-fluid {
-  width: 100%;
+  width: 100vw;
   height: 200px;
+  padding: 0;
 }
 
 div.fullMap.row {
-  margin: 20px;
   height: 500px;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -32,4 +35,13 @@ div.fullMap.row input#pc-input {
 #map {
   height: 100%;
   border-radius: 5px;
+  width: 50%;
+}
+
+
+
+footer {
+  background: grey;
+  height: 200px;
+  width: 100%;
 }

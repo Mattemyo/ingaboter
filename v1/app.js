@@ -22,13 +22,13 @@ $(function() {
       {
         key: "yesterday",
         weekday: weekdays[weekdayNum === 0 ? 6 : weekdayNum - 1],
-        color: "green"
+        color: "#87EA55"
       },
       { key: "today", weekday: weekdays[weekdayNum], color: "rgb(153, 0, 20)" },
       {
         key: "tomorrow",
         weekday: weekdays[weekdayNum === 6 ? 0 : weekdayNum + 1],
-        color: "red"
+        color: "rgb(153, 0, 20)"
       },
       {
         key: "dayAfterTomorrow",
@@ -45,7 +45,7 @@ $(function() {
     const sthmlApiKey =
       "31be1dc0-8e91-41ff-b9f3-33fe1208c1d6&maxFeatures=" + maxFeatures;
     // ====== REQUEST YESTERDAY'S, TODAY'S, AND TOMORROWS INFO ==== //
-    importantDays.map((importantDay, i) => {
+    importantDays.map(importantDay => {
       $.ajax({
         type: "GET",
         url: firstStockUrl + importantDay.weekday + lastStockUrl + sthmlApiKey,
@@ -66,11 +66,14 @@ $(function() {
         //   `<li >${feature.properties.ADDRESS}</li>`
         // );
         // CALL FUNCTION TO DRAW A LINE WITH SPECIFIC COLOR
+        if (!feature.properties.ADDRESS) {
+          return;
+        }
         if (
           feature.properties.END_TIME <= currentHour * 100 &&
           importantDay === importantDays[2]
         ) {
-          importantDay.color = "green";
+          importantDay.color = importantDays[1].color;
         }
         colorizeStreet(importantDay.color, feature.geometry.coordinates);
       });
@@ -194,7 +197,6 @@ $(function() {
               isGrowing = !isGrowing;
             }
           }
-         
 
           coloredPath.set("strokeOpacity", opacity || weight);
           coloredPath.set("strokeWeight", weight * 2);
