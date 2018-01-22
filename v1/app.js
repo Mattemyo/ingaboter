@@ -38,7 +38,7 @@ $(function() {
     ];
 
     // FIRST AND SECOND PART OF URL
-    const maxFeatures = 1000;
+    const maxFeatures = 100;
     const firstStockUrl =
       "https://openparking.stockholm.se/LTF-Tolken/v1/servicedagar/weekday/";
     const lastStockUrl = "?outputFormat=json&apiKey=";
@@ -167,34 +167,42 @@ $(function() {
         path: streetCoordinates,
         geodesic: true,
         strokeColor: color,
-        strokeOpacity: 1.0,
-        strokeWeight: 2
+        strokeOpacity: 0,
+        strokeWeight: 0
       });
-
-      // ANIMATE ALL RED POLYLINES
-     
-      function animateRed() {
-        let opacity = 0;
-      setInterval(() => {
-        if (opacity > 1) {
-          opacity = 0;
-        }
-
-        coloredPath.strokeOpacity = opacity;
-        opacity += 0.5;
-      }, 2000);
-
-
-
-        coloredPath.strokeColor = "black"
-        console.log('hej');
+      if (color === importantDays[3].color) {
+        animateRed();
+      } else {
+        coloredPath.set("strokeOpacity", 1.0);
+        coloredPath.set("strokeWeight", 2);
       }
+      // ANIMATE ALL RED POLYLINES
 
-       if (color === importantDays[3].color) {
-         animateRed();
-       }
+      function animateRed() {
+        let weight = 0;
+        let opacity;
+        let isGrowing = true;
+        window.setInterval(() => {
+          if (isGrowing) {
+            weight += 0.06;
+            if (weight > 2) {
+              isGrowing = !isGrowing;
+            }
+          } else {
+            weight -= 0.06;
+            if (weight < 0.7) {
+              isGrowing = !isGrowing;
+            }
+          }
+          if (opacity === 1.0) {
+            opacity = 0.2;
+          }
 
-      console.log(coloredPath.strokeColor);
+          coloredPath.set("strokeOpacity", opacity || weight);
+          coloredPath.set("strokeWeight", weight * 2);
+          console.log(coloredPath.strokeOpacity);
+        }, 10);
+      }
 
       coloredPath.setMap(map);
     }
