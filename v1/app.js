@@ -2,6 +2,7 @@ $(function() {
   function initAutocomplete() {
     // ============  PARKING API ================= //
     const weekdayNum = new Date().getDay();
+    const currentHour = new Date().getHours();
     const weekdays = [
       "söndag",
       "måndag",
@@ -23,7 +24,7 @@ $(function() {
         weekday: weekdays[weekdayNum === 0 ? 6 : weekdayNum - 1],
         color: "green"
       },
-      { key: "today", weekday: weekdays[weekdayNum], color: "red" },
+      { key: "today", weekday: weekdays[weekdayNum], color: "rgb(153, 0, 20)" },
       {
         key: "tomorrow",
         weekday: weekdays[weekdayNum === 6 ? 0 : weekdayNum + 1],
@@ -41,7 +42,8 @@ $(function() {
     const firstStockUrl =
       "https://openparking.stockholm.se/LTF-Tolken/v1/servicedagar/weekday/";
     const lastStockUrl = "?outputFormat=json&apiKey=";
-    const sthmlApiKey = "31be1dc0-8e91-41ff-b9f3-33fe1208c1d6&maxFeatures="+maxFeatures;
+    const sthmlApiKey =
+      "31be1dc0-8e91-41ff-b9f3-33fe1208c1d6&maxFeatures=" + maxFeatures;
     // ====== REQUEST YESTERDAY'S, TODAY'S, AND TOMORROWS INFO ==== //
     importantDays.map((importantDay, i) => {
       $.ajax({
@@ -54,7 +56,6 @@ $(function() {
           return;
         }
         colorize(data.features, importantDay);
-
       });
     });
 
@@ -65,7 +66,12 @@ $(function() {
         //   `<li >${feature.properties.ADDRESS}</li>`
         // );
         // CALL FUNCTION TO DRAW A LINE WITH SPECIFIC COLOR
-        console.log(importantDay.color, feature.geometry.coordinates);
+        if (
+          feature.properties.END_TIME <= currentHour * 100 &&
+          importantDay === importantDays[2]
+        ) {
+          importantDay.color = "green";
+        }
         colorizeStreet(importantDay.color, feature.geometry.coordinates);
       });
     };
@@ -150,14 +156,13 @@ $(function() {
       const streetCoordinates = [];
 
       coords.forEach(pair => {
-        const obj =  {
-          lat : pair[1],
-          lng : pair[0]
-        }
+        const obj = {
+          lat: pair[1],
+          lng: pair[0]
+        };
 
         streetCoordinates.push(obj);
       });
-      console.log(streetCoordinates);
       const coloredPath = new google.maps.Polyline({
         path: streetCoordinates,
         geodesic: true,
@@ -165,6 +170,31 @@ $(function() {
         strokeOpacity: 1.0,
         strokeWeight: 2
       });
+
+      // ANIMATE ALL RED POLYLINES
+     
+      function animateRed() {
+        let opacity = 0;
+      setInterval(() => {
+        if (opacity > 1) {
+          opacity = 0;
+        }
+
+        coloredPath.strokeOpacity = opacity;
+        opacity += 0.5;
+      }, 2000);
+
+
+
+        coloredPath.strokeColor = "black"
+        console.log('hej');
+      }
+
+       if (color === importantDays[3].color) {
+         animateRed();
+       }
+
+      console.log(coloredPath.strokeColor);
 
       coloredPath.setMap(map);
     }
