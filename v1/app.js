@@ -80,7 +80,6 @@ $(function() {
     };
 
     const googleApiKey = "AIzaSyBWagNfi1z8VDkcHSS2dXlzgTPpDNby3Qg";
-    // MAP
     // ============= GOOGLE MAPS API =========== //
 
     var map = new google.maps.Map(document.getElementById("map"), {
@@ -200,7 +199,6 @@ $(function() {
 
           coloredPath.set("strokeOpacity", opacity || weight);
           coloredPath.set("strokeWeight", weight * 2);
-          console.log(coloredPath.strokeOpacity);
         }, 10);
       }
 

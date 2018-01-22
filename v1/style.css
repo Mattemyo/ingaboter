@@ -1,12 +1,17 @@
+body,
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+  height: 100%;
+}
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 nav {
   height: 60px;
-  z-index: 50;
-  margin-bottom: 20px;
-  overflow: hidden;
+
 }
 
 div.container-fluid {
@@ -14,11 +19,15 @@ div.container-fluid {
   height: 200px;
   padding: 0;
 }
+div.row.jumbo {
+  width: 100%;
+  margin-top: 70px;
+}
 
 div.fullMap.row {
   height: 500px;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  margin: 50px;
 }
 
 div.fullMap.row input#pc-input {
@@ -35,13 +44,12 @@ div.fullMap.row input#pc-input {
 #map {
   height: 100%;
   border-radius: 5px;
-  width: 50%;
+  width: 100%;
 }
-
-
 
 footer {
   background: grey;
   height: 200px;
   width: 100%;
+  z-index: 50;
 }
