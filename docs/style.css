@@ -3,10 +3,10 @@ body {
   width: 100%;
   padding: 0;
   overflow-x: hidden;
-  font-family: Roboto, serif;
 }
 * {
-  box-sizing: border-box;  
+  box-sizing: border-box;
+  font-family: "Roboto", serif;
 }
 
 nav {
@@ -15,7 +15,7 @@ nav {
 
 div.container-fluid {
   padding: 0;
-  background: #ffffffd3;
+  background: rgba(175, 173, 173, 0.116);
 }
 
 div.jumbo-text {
@@ -25,6 +25,11 @@ div.jumbo-text {
 div.row.labels {
   margin: 20px 0px;
   text-align: center;
+  padding-left: 15px;
+}
+
+div.row.labels div.col-md-2.col-6 {
+  padding: 0;
 }
 div.label-color {
   padding: 0;
@@ -40,7 +45,7 @@ span.label-color {
 }
 
 span.label-color.red {
-  background: #C0111E;
+  background: #c0111e;
 }
 span.label-color.orange {
   background: orange;
@@ -71,6 +76,13 @@ div.fullMap.row input#pc-input {
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.138);
   height: 40px;
+  background: rgb(255, 252, 252);
+  color: rgb(1, 16, 48);
+}
+
+input#pc-input::placeholder {
+  /* Most modern browsers support this now. */
+  color: rgba(0, 41, 128, 0.5);
 }
 
 #map {
@@ -79,7 +91,7 @@ div.fullMap.row input#pc-input {
 }
 
 footer {
-  background: #E9ECEF;
+  background: #e9ecef;
   height: 200px;
 }
 
