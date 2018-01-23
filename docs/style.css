@@ -3,9 +3,10 @@ body {
   width: 100%;
   padding: 0;
   overflow-x: hidden;
+  font-family: Roboto, serif;
 }
 * {
-  box-sizing: border-box;
+  box-sizing: border-box;  
 }
 
 nav {
@@ -14,10 +15,42 @@ nav {
 
 div.container-fluid {
   padding: 0;
+  background: #ffffffd3;
+}
+
+div.jumbo-text {
+  padding: 15px;
 }
 /* ======= LABELS FOR MAP ====  */
+div.row.labels {
+  margin: 20px 0px;
+  text-align: center;
+}
+div.label-color {
+  padding: 0;
+}
 
+span.label-color {
+  display: inline-block;
+  width: 30px;
+  height: 16px;
+  margin-bottom: -2px;
+  margin-left: 12px;
+  border-radius: 15px;
+}
 
+span.label-color.red {
+  background: #C0111E;
+}
+span.label-color.orange {
+  background: orange;
+}
+span.label-color.green {
+  background: rgb(59, 112, 32);
+}
+span.label-color.lightgreen {
+  background: lightgreen;
+}
 
 /* ===============  MAP ======== */
 
@@ -26,6 +59,7 @@ div.fullMap.row {
   height: 80vh;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
   margin: auto;
+  margin-bottom: 20px;
 }
 
 div.fullMap.row input#pc-input {
@@ -45,11 +79,14 @@ div.fullMap.row input#pc-input {
 }
 
 footer {
-  background: grey;
+  background: #E9ECEF;
   height: 200px;
-  width: 100%;
-  z-index: 50;
-  margin: 0;
 }
 
 /* ================ MEDIA QUERIES ================ */
+
+@media screen and (max-width: 680px) {
+  div.row.labels {
+    text-align: left;
+  }
+}

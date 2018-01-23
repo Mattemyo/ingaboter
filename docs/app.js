@@ -1,4 +1,5 @@
 $(function() {
+  // TODO: REMOVE FEATURES WITH ONLY 2 COORDINATEs
   function initAutocomplete() {
     // ============  PARKING API ================= //
     const weekdayNum = new Date().getDay();
@@ -17,18 +18,18 @@ $(function() {
       {
         key: "dayBeforeYesterday",
         weekday: weekdays[weekdayNum === 0 ? 5 : weekdayNum - 2],
-        color: "lightgreen"
+        color: "#87EA55"
       },
       {
         key: "yesterday",
         weekday: weekdays[weekdayNum === 0 ? 6 : weekdayNum - 1],
-        color: "#87EA55"
+        color: "rgb(59, 112, 32)"
       },
-      { key: "today", weekday: weekdays[weekdayNum], color: "rgb(153, 0, 20)" },
+      { key: "today", weekday: weekdays[weekdayNum], color: "#C0111E" },
       {
         key: "tomorrow",
         weekday: weekdays[weekdayNum === 6 ? 0 : weekdayNum + 1],
-        color: "rgb(153, 0, 20)"
+        color: "#C0111E"
       },
       {
         key: "dayAfterTomorrow",
