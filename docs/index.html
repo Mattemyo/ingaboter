@@ -2,6 +2,7 @@
 <html>
 
 <!-- TODO:  Add labels to the top of map -->
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +18,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
@@ -36,44 +37,12 @@
         </div>
     </nav>
 
-    <!-- <div class="omraden">
-        <h3>Städdag i förrgår
-            <span></span>
-        </h3>
-        <ul data-day="dayBeforeYesterday">
-        </ul>
-        <hr>
 
-        <h3>Städdag igår
-            <span></span>
-        </h3>
-        <ul data-day="yesterday">
-        </ul>
-        <hr>
-
-        <h3>Städdag idag
-            <span></span>
-        </h3>
-        <ul data-day="today">
-        </ul>
-        <hr>
-        <h3>Städdag imorgon
-            <span></span>
-        </h3>
-        <ul data-day="tomorrow">
-        </ul>
-        <hr>
-        <h3>Städdag i övermorgon
-            <span></span>
-        </h3>
-        <ul data-day="dayAfterTomorrow">
-        </ul>
-
-    </div> -->
 
     <div class="container-fluid">
-        <div class="row jumbo">
-            <div class="jumbotron col-md-10 offset-md-1">
+
+        <div class="jumbotron row">
+            <div class="jumbo-text">
                 <h1>Välkommen!</h1>
                 <p>Spicy jalapeno bacon ipsum dolor amet rump frankfurter venison pork chop biltong tenderloin cupim. Meatball
                     alcatra tenderloin boudin shank. Swine meatball chicken t-bone ball tip shank corned beef leberkas tongue
@@ -91,14 +60,35 @@
             </div>
         </div>
 
+        <div class="row labels">
+            <div class="col-md-3">
+                Farligt
+                <span class="red label-color">ff</span>
+            </div>
+            <div class="col-md-3">
+                Farligt
+                <span class="red label-color">ff</span>
+            </div>
+            <div class="col-md-3">
+                Farligt
+                <span class="red label-color">ff</span>
+            </div>
+            <div class="col-md-3">
+                Farligt
+                <span class="red label-color">ff</span>
+            </div>
+        </div>
+
         <div class="fullMap row">
+
 
             <input type="text" id="pc-input" class="controls form-control col-md-12" placeholder="Sök Här!">
 
             <div id="map" class="col-md-12"></div>
         </div>
 
-        <footer class="row">
+
+        <footer class="container-fluid">
 
         </footer>
 

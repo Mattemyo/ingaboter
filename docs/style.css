@@ -1,33 +1,31 @@
-body,
-html {
-  max-width: 100%;
+html,
+body {
+  width: 100%;
+  padding: 0;
   overflow-x: hidden;
-  height: 100%;
 }
-
 * {
   box-sizing: border-box;
 }
 
 nav {
   height: 60px;
-
 }
 
 div.container-fluid {
-  width: 100vw;
-  height: 200px;
   padding: 0;
 }
-div.row.jumbo {
-  width: 100%;
-  margin-top: 70px;
-}
+/* ======= LABELS FOR MAP ====  */
+
+
+
+/* ===============  MAP ======== */
 
 div.fullMap.row {
-  height: 500px;
+  width: 96%;
+  height: 80vh;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
-  margin: 50px;
+  margin: auto;
 }
 
 div.fullMap.row input#pc-input {
@@ -37,14 +35,13 @@ div.fullMap.row input#pc-input {
   padding: none;
   font-size: 20px;
   background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 1px 1px 80px 1px rgba(0, 0, 0, 0.438);
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.138);
   height: 40px;
 }
 
 #map {
   height: 100%;
   border-radius: 5px;
-  width: 100%;
 }
 
 footer {
@@ -52,4 +49,7 @@ footer {
   height: 200px;
   width: 100%;
   z-index: 50;
+  margin: 0;
 }
+
+/* ================ MEDIA QUERIES ================ */

@@ -38,7 +38,7 @@ $(function() {
     ];
 
     // FIRST AND SECOND PART OF URL
-    const maxFeatures = 3000;
+    const maxFeatures = "";
     const firstStockUrl =
       "https://openparking.stockholm.se/LTF-Tolken/v1/servicedagar/weekday/";
     const lastStockUrl = "?outputFormat=json&apiKey=";
@@ -89,7 +89,7 @@ $(function() {
         lng: 18.06
       },
       zoom: 12,
-      mapTypeId: "roadmap"
+      mapTypeId: "terrain"
     });
 
     // Create the search box and link it to the UI element.
@@ -176,7 +176,7 @@ $(function() {
         animateRed();
       } else {
         coloredPath.set("strokeOpacity", 1.0);
-        coloredPath.set("strokeWeight", 2);
+        coloredPath.set("strokeWeight", map.zoom > 14 ? map.zoom / 3 : 2);
       }
       // ANIMATE ALL RED POLYLINES
 
