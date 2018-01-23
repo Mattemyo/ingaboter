@@ -34,7 +34,7 @@ $(function() {
       {
         key: "dayAfterTomorrow",
         weekday: weekdays[weekdayNum === 6 ? 1 : weekdayNum + 2],
-        color: "orange"
+        color: "rgb(252, 199, 101)"
       }
     ];
 
