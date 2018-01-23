@@ -67,9 +67,7 @@ $(function() {
         //   `<li >${feature.properties.ADDRESS}</li>`
         // );
         // CALL FUNCTION TO DRAW A LINE WITH SPECIFIC COLOR
-        if (!feature.properties.ADDRESS) {
-          return;
-        }
+       
         if (
           feature.properties.END_TIME <= currentHour * 100 &&
           importantDay === importantDays[2]
