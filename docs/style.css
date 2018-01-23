@@ -37,9 +37,8 @@ div.label-color {
 
 span.label-color {
   display: inline-block;
-  width: 30px;
-  height: 16px;
-  margin-bottom: -2px;
+  width: 60px;
+  height: 12px;
   margin-left: 12px;
   border-radius: 15px;
 }
@@ -97,11 +96,20 @@ footer {
 
 /* ================ MEDIA QUERIES ================ */
 
-@media screen and (min-width: 600px) and (max-width: 1000px) {
+@media screen and (min-width: 540px) and (max-width: 1000px) {
   div.row.labels span {
     display: block;
     width: 130px;
     position: relative;
     margin-left: 0;
+  }
+  div.row.labels {
+    text-align: justify;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  div.col-md-3:nth-of-type(1) {
+    margin-right: -120px;
   }
 }
