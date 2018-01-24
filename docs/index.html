@@ -58,8 +58,8 @@
                     frankfurter hamburger tail ball tip t-bone. Filet mignon tenderloin bacon pork loin pork chop frankfurter.
                     Turkey doner sirloin rump pork chop.</p>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg col-12" data-toggle="modal" data-target="#label-info">
-                    Detaljer
+                <button type="button" class="btn btn-primary btn-lg col-6 col-md-3 ml-auto" data-toggle="modal" data-target="#label-info">
+                    Hur fungerar denna sida?
                 </button>
             </div>
 
@@ -95,6 +95,10 @@
             <input type="text" id="pc-input" class="controls form-control col-md-12" placeholder="Sök Här!">
 
             <div id="map" class="col-md-12"></div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg col-3" data-toggle="modal" data-target="#disclaimer-modal">
+                Ansvarsfriskrivning
+            </button>
         </div>
 
 
@@ -107,13 +111,44 @@
 
 
 
-    <!-- Modal -->
+    <!-- Modals -->
+
+
+    <!-- Label Modal -->
+
+    <div class="modal fade" id="disclaimer-modal" tabindex="-1" role="dialog" aria-labelledby="disclaimer-title" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title mr-auto " id="disclaimer-title ">Ansvarsfriskrivning</h4>
+                    <button type="button " class="close mr-0 " data-dismiss="modal" aria-label="Close ">
+                        <span aria-hidden="true ">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+
+                </div>
+
+            </div>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Okej</button>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!-- Disclaimer Modal -->
+
     <div class="modal fade" id="label-info" tabindex="-1" role="dialog" aria-labelledby="label-title" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class=" modal-header ">
+                <div class="modal-header">
                     <h4 class="modal-title mr-auto " id="label-title ">Information</h4>
-                    <button type="button " class="close mr-0 " data-dismiss="modal " aria-label="Close ">
+                    <button type="button " class="close mr-0 " data-dismiss="modal" aria-label="Close ">
                         <span aria-hidden="true ">&times;</span>
                     </button>
 
@@ -130,18 +165,19 @@
                                     <span class="red label-color "></span>
                                 </h5>
                                 <p class="modal-label-text">
-                                    Varning! Har du bilen parkerad här kommer du få böter. Service sker antingen idag,
-                                    <span
-                                        class="today"></span> (kanske just nu) eller imorgon,
-                                        <span class="tomorrow"></span>
+                                    Varning! Har du bilen parkerad här kommer du få böter. Städning infaller antingen idag,
+                                    <span class="today"></span> (kanske just nu) eller imorgon,
+                                    <span class="tomorrow"></span>.
                                 </p>
                             </div>
                             <div class="col-md-3 col-sm-6 ">
                                 <h5>Ganska farligt
-                                    <span class="orange label-color "></span>
+                                    <span class="orange label-color"></span>
                                 </h5>
                                 <p class="modal-label-text">
-                                    Se upp! För att undvika böter bör du flytta bilen senast imorgon, <span class="tomorrow"></span>. Service sker i övermorgon, <span class="dayAfterTomorrow"></span>
+                                    Se upp! För att undvika böter bör du flytta bilen senast imorgon,
+                                    <span class="tomorrow"></span>. Service sker i övermorgon,
+                                    <span class="dayAfterTomorrow"></span>.
                                 </p>
                             </div>
                             <div class="col-md-3 col-sm-6 ">
@@ -149,7 +185,8 @@
                                     <span class="lightgreen label-color "></span>
                                 </h5>
                                 <p class="modal-label-text">
-                                    Bra platser att parkera på. Service skedde i förrgår, <span class="dayBeforeYesterday"></span>
+                                    Bra platser att parkera på. Service skedde i förrgår,
+                                    <span class="dayBeforeYesterday"></span>.
                                 </p>
                             </div>
                             <div class="col-md-3 col-sm-6 ">
@@ -157,7 +194,9 @@
                                     <span class="green label-color "></span>
                                 </h5>
                                 <p class="modal-label-text">
-                                    Bästa gatorna att parkera på. Service genomfördes antingen igår, <span class="yesterday"></span> eller tidigare idag, <span class="today"></span>.
+                                    Bästa gatorna att parkera på. Service genomfördes antingen igår,
+                                    <span class="yesterday"></span> eller tidigare idag,
+                                    <span class="today"></span>.
                                 </p>
                             </div>
 
@@ -165,12 +204,15 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary ">Ok</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Okej</button>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
 
 
 

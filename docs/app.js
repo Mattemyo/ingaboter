@@ -16,23 +16,23 @@ $(function() {
 
     const importantDays = [
       {
-        key: "dayBeforeYesterday",
+        name: "dayBeforeYesterday",
         weekday: weekdays[weekdayNum === 0 ? 5 : weekdayNum - 2],
         color: "#87EA55"
       },
       {
-        key: "yesterday",
+        name: "yesterday",
         weekday: weekdays[weekdayNum === 0 ? 6 : weekdayNum - 1],
         color: "rgb(59, 112, 32)"
       },
-      { key: "today", weekday: weekdays[weekdayNum], color: "#C0111E" },
+      { name: "today", weekday: weekdays[weekdayNum], color: "#C0111E" },
       {
-        key: "tomorrow",
+        name: "tomorrow",
         weekday: weekdays[weekdayNum === 6 ? 0 : weekdayNum + 1],
         color: "#C0111E"
       },
       {
-        key: "dayAfterTomorrow",
+        name: "dayAfterTomorrow",
         weekday: weekdays[weekdayNum === 6 ? 1 : weekdayNum + 2],
         color: "rgb(252, 199, 101)"
       }
@@ -67,7 +67,7 @@ $(function() {
         //   `<li >${feature.properties.ADDRESS}</li>`
         // );
         // CALL FUNCTION TO DRAW A LINE WITH SPECIFIC COLOR
-       
+
         if (
           feature.properties.END_TIME <= currentHour * 100 &&
           importantDay === importantDays[2]
@@ -203,10 +203,13 @@ $(function() {
 
       coloredPath.setMap(map);
     }
+    // ====================== MODALS ================= //
+
+    importantDays.map(importantDay => {
+      const $span = $(`div.modal span.${importantDay.name}`);
+      $span.text(importantDay.weekday);
+    });
   }
+
   initAutocomplete();
-  
-  // ====================== MODALS ================= //
-
-
 });
