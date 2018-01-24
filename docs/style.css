@@ -19,13 +19,10 @@ button {
 
 div.container-fluid {
   padding: 0;
-  background: rgba(175, 173, 173, 0.116);
-
 }
 
 div.jumbotron.row {
   height: 94vh;
-  
 }
 
 div.jumbo-text {
@@ -108,10 +105,10 @@ button.btn-primary {
 button.btn-secondary {
   margin-top: 20px;
   color: grey;
-  background: rgb(223, 219, 219); 
+  background: rgb(223, 219, 219);
   border: none;
 }
-button.btn-secondary:hover{
+button.btn-secondary:hover {
   opacity: 0.4;
   color: black;
 }
@@ -144,11 +141,11 @@ footer {
 
 /* =============== MODALS ========================= */
 
-div.modal-lg {
-  min-width: 94vw;
-  margin-top: 20px;
-  margin-left: 2vw;
-  position: fixed;
+div.modal-body {
+  background: #e9ecef;
+}
+div.modal {
+  margin: auto;
 }
 
 @media screen and (min-width: 1200px) {
@@ -157,18 +154,8 @@ div.modal-lg {
   }
 }
 
-
-p.modal-label-text {
-  text-align: left;
- 
-}
-div.modal-body {
-  background:  #E9ECEF;
-}
-
 div.modal p.modal-label-text span {
   display: inline;
   margin-right: -1px;
   padding: 0;
-
 }
