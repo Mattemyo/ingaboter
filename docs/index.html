@@ -5,8 +5,10 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>API Parkering</title>
+    <title>parkingMapp</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' />
     <link href="https://fonts.googleapis.com/css?family=Poppins|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -19,18 +21,19 @@
 <body>
 
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">
+            <i class="fa fa-car" aria-hidden="true"></i> parkingMapp</a>
         <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+            <ul class="navbar-nav mr-1 mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hem
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Karta</a>
                 </li>
 
             </ul>
@@ -44,6 +47,7 @@
         <div class="jumbotron row">
             <div class="jumbo-text col-12">
                 <h1>Välkommen!</h1>
+                <hr>
                 <p>Spicy jalapeno bacon ipsum dolor amet rump frankfurter venison pork chop biltong tenderloin cupim. Meatball
                     alcatra tenderloin boudin shank. Swine meatball chicken t-bone ball tip shank corned beef leberkas tongue
                     spare ribs tri-tip rump sausage. Turducken corned beef short loin pork loin salami strip steak fatback
@@ -52,21 +56,22 @@
                     filet mignon sirloin leberkas pork. Ham venison pork loin, short loin porchetta pastrami meatloaf ribeye
                     turducken capicola picanha drumstick jowl cow pork.
                 </p>
+                <br>
                 <p>
                     Buffalo chicken bresaola, ribeye drumstick doner pork rump. Ball tip leberkas tongue cow ground round, burgdoggen boudin
                     kielbasa jowl. Andouille swine t-bone beef ribs tail. Salami alcatra jowl, venison turkey pork belly
                     frankfurter hamburger tail ball tip t-bone. Filet mignon tenderloin bacon pork loin pork chop frankfurter.
                     Turkey doner sirloin rump pork chop.</p>
+                <br>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg col-6 col-md-3 ml-auto" data-toggle="modal" data-target="#label-info">
+                <button type="button" class="btn btn-primary btn-lg col-6 col-md-3 ml-auto mt-4" data-toggle="modal" data-target="#label-info">
                     Hur fungerar denna sida?
                 </button>
             </div>
-
         </div>
 
         <div class="row labels">
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-2 col-sm-6">
                 <h5>Farligt
                     <span class="red label-color"></span>
                 </h5>
@@ -95,26 +100,27 @@
             <input type="text" id="pc-input" class="controls form-control col-md-12" placeholder="Sök Här!">
 
             <div id="map" class="col-md-12"></div>
+        </div>
+        <div class="row">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg col-3" data-toggle="modal" data-target="#disclaimer-modal">
+            <button type="button" class="btn btn-secondary col-4 col-md-2 offset-1 mb-3 mt-1" data-toggle="modal" data-target="#disclaimer-modal">
                 Ansvarsfriskrivning
             </button>
         </div>
 
-
-        <footer class="container-fluid">
-
-        </footer>
-
-
     </div>
+    <footer class="container-fluid">
+
+    </footer>
+
+
 
 
 
     <!-- Modals -->
 
 
-    <!-- Label Modal -->
+    <!-- Disclaimer Modal -->
 
     <div class="modal fade" id="disclaimer-modal" tabindex="-1" role="dialog" aria-labelledby="disclaimer-title" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -127,7 +133,9 @@
 
                 </div>
                 <div class="modal-body">
-
+                    <h4>Ansvarsfriskrivning</h4>
+                    <p>Denna sida ansvarar ej för eventuella undantag eller felaktigheter. Informationen som presenteras här
+                        baseras på Stockholms stads API</p>
                 </div>
 
             </div>
@@ -141,13 +149,15 @@
     </div>
 
 
-    <!-- Disclaimer Modal -->
+    <!-- Label Modal -->
 
     <div class="modal fade" id="label-info" tabindex="-1" role="dialog" aria-labelledby="label-title" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title mr-auto " id="label-title ">Information</h4>
+                    <h4 class="modal-title ml-1" id="label-title ">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    </h4>
                     <button type="button " class="close mr-0 " data-dismiss="modal" aria-label="Close ">
                         <span aria-hidden="true ">&times;</span>
                     </button>

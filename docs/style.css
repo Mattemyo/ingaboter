@@ -10,7 +10,7 @@ body {
 }
 
 nav {
-  height: 60px;
+  height: 10vh;
 }
 
 button {
@@ -20,16 +20,26 @@ button {
 div.container-fluid {
   padding: 0;
   background: rgba(175, 173, 173, 0.116);
+
+}
+
+div.jumbotron.row {
+  height: 94vh;
+  
 }
 
 div.jumbo-text {
   padding: 15px;
 }
+div.jumbo-text p {
+  font-size: 1rem;
+}
 /* ======= LABELS FOR MAP ====  */
 div.row.labels {
-  margin: 20px 0px;
+  margin: 70px 0px 40px;
   text-align: left;
   padding-left: 15px;
+  height: 10vh;
 }
 
 div.row.labels div.col-6 {
@@ -64,7 +74,7 @@ span.label-color.lightgreen {
 
 div.fullMap.row {
   width: 94.5%;
-  height: 80vh;
+  height: 70vh;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
   margin: auto;
   margin-bottom: 20px;
@@ -92,11 +102,23 @@ input#pc-input::placeholder {
   height: 100%;
   border-radius: 5px;
 }
+button.btn-primary {
+  background: rgba(0, 105, 217, 0.849);
+}
+button.btn-secondary {
+  margin-top: 20px;
+  color: grey;
+  background: rgb(223, 219, 219); 
+  border: none;
+}
+button.btn-secondary:hover{
+  opacity: 0.4;
+  color: black;
+}
 
 footer {
   background: #e9ecef;
   height: 200px;
-  margin-top: 90px;
 }
 
 /* ================ MEDIA QUERIES ================ */
@@ -112,7 +134,14 @@ footer {
     text-align: justify;
   }
   div.fullMap.row {
-    width: 90%;
+    width: 92%;
+  }
+  div.jumbotron.row {
+    font-size: 10px;
+    padding-top: 0;
+  }
+  div.jumbotron.row {
+
   }
 }
 
@@ -126,9 +155,9 @@ div.modal-lg {
 }
 
 @media screen and (min-width: 1200px) {
-  /* div.col-md-3:nth-of-type(1) {
-     margin-right: -120px; 
-  } */
+  div.fullMap.row {
+    width: 96%;
+  }
 }
 
 
