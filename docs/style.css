@@ -36,7 +36,7 @@ div.jumbo-text p {
 }
 /* ======= LABELS FOR MAP ====  */
 div.row.labels {
-  margin: 70px 0px 40px;
+  margin: 20px 0px 40px;
   text-align: left;
   padding-left: 15px;
   height: 10vh;
@@ -139,9 +139,6 @@ footer {
   div.jumbotron.row {
     font-size: 10px;
     padding-top: 0;
-  }
-  div.jumbotron.row {
-
   }
 }
 
