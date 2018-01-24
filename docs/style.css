@@ -13,6 +13,10 @@ nav {
   height: 60px;
 }
 
+button {
+  outline: none !important;
+}
+
 div.container-fluid {
   padding: 0;
   background: rgba(175, 173, 173, 0.116);
@@ -59,7 +63,7 @@ span.label-color.lightgreen {
 /* ===============  MAP ======== */
 
 div.fullMap.row {
-  width: 96%;
+  width: 94.5%;
   height: 80vh;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
   margin: auto;
@@ -106,7 +110,13 @@ footer {
   div.row.labels {
     text-align: justify;
   }
+  div.fullMap.row {
+   width: 90%;
+  }
 }
+
+
+/* =============== MODALS ========================= */
 
 @media screen and (min-width: 1200px) {
   div.col-md-3:nth-of-type(1) {

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<!-- TODO:  Add labels to the top of map -->
 
 <head>
     <meta charset="utf-8" />
@@ -43,7 +42,7 @@
     <div class="container-fluid">
 
         <div class="jumbotron row">
-            <div class="jumbo-text">
+            <div class="jumbo-text col-12">
                 <h1>Välkommen!</h1>
                 <p>Spicy jalapeno bacon ipsum dolor amet rump frankfurter venison pork chop biltong tenderloin cupim. Meatball
                     alcatra tenderloin boudin shank. Swine meatball chicken t-bone ball tip shank corned beef leberkas tongue
@@ -58,7 +57,12 @@
                     kielbasa jowl. Andouille swine t-bone beef ribs tail. Salami alcatra jowl, venison turkey pork belly
                     frankfurter hamburger tail ball tip t-bone. Filet mignon tenderloin bacon pork loin pork chop frankfurter.
                     Turkey doner sirloin rump pork chop.</p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg col-12" data-toggle="modal" data-target="#label-info">
+                    Detaljer
+                </button>
             </div>
+
         </div>
 
         <div class="row labels">
@@ -68,7 +72,7 @@
                 </h5>
             </div>
             <div class="col-md-3 col-sm-6">
-                <h5>Ganska Farligt
+                <h5>Ganska farligt
                     <span class="orange label-color"></span>
                 </h5>
             </div>
@@ -99,6 +103,31 @@
         </footer>
 
 
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="label-info" tabindex="-1" role="dialog" aria-labelledby="label-title" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title mr-auto" id="label-title">Information</h4>
+                    <button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam adipisci dolores aperiam, atque provident odio, aliquid
+                    similique sit dicta dolorum molestias dolorem eius sapiente, eum explicabo eaque voluptate quasi vel!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Ok</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
