@@ -111,15 +111,21 @@ footer {
     text-align: justify;
   }
   div.fullMap.row {
-   width: 90%;
+    width: 90%;
   }
 }
 
-
 /* =============== MODALS ========================= */
+
+div.modal-lg {
+  min-width: 94vw;
+  margin-top: 20px;
+  margin-left: 2vw;
+  position: fixed;
+}
 
 @media screen and (min-width: 1200px) {
   div.col-md-3:nth-of-type(1) {
-    margin-right: -120px;
+    /* margin-right: -120px; */
   }
 }

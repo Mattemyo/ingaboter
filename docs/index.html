@@ -109,22 +109,64 @@
 
     <!-- Modal -->
     <div class="modal fade" id="label-info" tabindex="-1" role="dialog" aria-labelledby="label-title" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title mr-auto" id="label-title">Information</h4>
-                    <button type="button" class="close mr-0" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                <div class=" modal-header ">
+                    <h4 class="modal-title mr-auto " id="label-title ">Information</h4>
+                    <button type="button " class="close mr-0 " data-dismiss="modal " aria-label="Close ">
+                        <span aria-hidden="true ">&times;</span>
                     </button>
 
                 </div>
                 <div class="modal-body">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam adipisci dolores aperiam, atque provident odio, aliquid
-                    similique sit dicta dolorum molestias dolorem eius sapiente, eum explicabo eaque voluptate quasi vel!
+                    <p class="modal-info row">
+                        <div class="row">
+                            <h4 class="col-12 text-center">Färgerna och deras betydelser</h4>
+                            <hr>
+                        </div>
+                        <div class="labels row">
+                            <div class="col-md-3 col-sm-6 ">
+                                <h5>Farligt
+                                    <span class="red label-color "></span>
+                                </h5>
+                                <p class="modal-label-text">
+                                    Varning! Har du bilen parkerad här kommer du få böter. Service sker antingen idag,
+                                    <span
+                                        class="today"></span> (kanske just nu) eller imorgon,
+                                        <span class="tomorrow"></span>
+                                </p>
+                            </div>
+                            <div class="col-md-3 col-sm-6 ">
+                                <h5>Ganska farligt
+                                    <span class="orange label-color "></span>
+                                </h5>
+                                <p class="modal-label-text">
+                                    Se upp! För att undvika böter bör du flytta bilen senast imorgon, <span class="tomorrow"></span>. Service sker i övermorgon, <span class="dayAfterTomorrow"></span>
+                                </p>
+                            </div>
+                            <div class="col-md-3 col-sm-6 ">
+                                <h5>Ganska säkert
+                                    <span class="lightgreen label-color "></span>
+                                </h5>
+                                <p class="modal-label-text">
+                                    Bra platser att parkera på. Service skedde i förrgår, <span class="dayBeforeYesterday"></span>
+                                </p>
+                            </div>
+                            <div class="col-md-3 col-sm-6 ">
+                                <h5>Säkert
+                                    <span class="green label-color "></span>
+                                </h5>
+                                <p class="modal-label-text">
+                                    Bästa gatorna att parkera på. Service genomfördes antingen igår, <span class="yesterday"></span> eller tidigare idag, <span class="today"></span>.
+                                </p>
+                            </div>
+
+                        </div>
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Ok</button>
+                    <button type="button" class="btn btn-primary ">Ok</button>
                 </div>
             </div>
         </div>
@@ -132,11 +174,11 @@
 
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWagNfi1z8VDkcHSS2dXlzgTPpDNby3Qg&libraries=places" async
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWagNfi1z8VDkcHSS2dXlzgTPpDNby3Qg&libraries=places " async
         defer></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.js'></script>
 
-    <script src="app.js"></script>
+    <script src="app.js "></script>
 
 
 </body>
