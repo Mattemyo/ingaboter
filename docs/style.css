@@ -10,7 +10,7 @@ body {
 }
 
 nav {
-  height: 10vh;
+  height: 50px;
 }
 
 button {
@@ -19,10 +19,6 @@ button {
 
 div.container-fluid {
   padding: 0;
-}
-
-div.jumbotron.row {
-  height: 94vh;
 }
 
 div.jumbo-text {
@@ -36,7 +32,7 @@ div.row.labels {
   margin: 20px 0px 40px;
   text-align: left;
   padding-left: 15px;
-  height: 10vh;
+  height: auto;
 }
 
 div.row.labels div.col-6 {
@@ -71,10 +67,10 @@ span.label-color.lightgreen {
 
 div.fullMap.row {
   width: 94.5%;
-  height: 70vh;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.1);
   margin: auto;
   margin-bottom: 20px;
+  height: 30rem;
 }
 
 div.fullMap.row input#pc-input {
@@ -120,7 +116,7 @@ footer {
 
 /* ================ MEDIA QUERIES ================ */
 
-@media screen and (min-width: 540px) and (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
   div.row.labels span {
     display: block;
     width: 130px;
