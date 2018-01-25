@@ -1,6 +1,12 @@
 $(function() {
   // TODO: REMOVE FEATURES WITH ONLY 2 COORDINATEs
-  function initAutocomplete() {
+  // REMOVE STICKY FROM INFO BUTTON
+
+  function initMap() {
+    $(".btn-primary")[0].on("click", function() {
+      $('.btn-primary')[0].hide();
+    });
+
     // ============  PARKING API ================= //
     const weekdayNum = new Date().getDay();
     const currentHour = new Date().getHours();
@@ -203,13 +209,8 @@ $(function() {
 
       coloredPath.setMap(map);
     }
-    // ====================== MODALS ================= //
-
-    importantDays.map(importantDay => {
-      const $span = $(`div.modal span.${importantDay.name}`);
-      $span.text(importantDay.weekday);
-    });
+   
   }
 
-  initAutocomplete();
+  initMap();
 });

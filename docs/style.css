@@ -71,6 +71,7 @@ div.fullMap.row {
   margin: auto;
   margin-bottom: 20px;
   height: 30rem;
+
 }
 
 div.fullMap.row input#pc-input {
@@ -95,8 +96,23 @@ input#pc-input::placeholder {
   height: 100%;
   border-radius: 5px;
 }
-button.btn-primary {
+
+div.position-fixed {
+  padding-right: 30px;
+  bottom: 10vw;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  z-index: 20;
+}
+
+div.position-fixed button.btn-primary {
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+}
+
+button.btn.btn-primary {
   background: rgba(0, 105, 217, 0.849);
+  z-index: 9999 !important;
 }
 button.btn-secondary {
   margin-top: 20px;
@@ -112,6 +128,18 @@ button.btn-secondary:hover {
 footer {
   background: #e9ecef;
   height: 200px;
+}
+
+/* =============== MODALS ========================= */
+
+div.modal-body {
+  background: #e9ecef;
+  width: 100%;
+}
+
+div.modal {
+  margin: auto;
+  width: 100vw;
 }
 
 /* ================ MEDIA QUERIES ================ */
@@ -133,16 +161,9 @@ footer {
     font-size: 10px;
     padding-top: 0;
   }
+
 }
 
-/* =============== MODALS ========================= */
-
-div.modal-body {
-  background: #e9ecef;
-}
-div.modal {
-  margin: auto;
-}
 
 @media screen and (min-width: 1200px) {
   div.fullMap.row {
