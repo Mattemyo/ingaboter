@@ -3,8 +3,9 @@ $(function() {
   // REMOVE STICKY FROM INFO BUTTON
 
   function initMap() {
-    $(".btn-primary")[0].on("click", function() {
-      $('.btn-primary')[0].hide();
+    $(".btn-lg").on("click", function() {
+      console.log($(this));
+      $(this).fadeOut(200);
     });
 
     // ============  PARKING API ================= //
