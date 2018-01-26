@@ -92,10 +92,12 @@ input#pc-input::placeholder {
   color: rgba(0, 41, 128, 0.5);
 }
 
+
 #map {
   height: 100%;
   border-radius: 5px;
 }
+
 
 div.position-fixed {
   padding-right: 30px;

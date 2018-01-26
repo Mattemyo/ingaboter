@@ -3,10 +3,14 @@ $(function() {
   // REMOVE STICKY FROM INFO BUTTON
 
   function initMap() {
+    // EXPLANATION BUTTON
     $(".btn-lg").on("click", function() {
       console.log($(this));
       $(this).fadeOut(200);
     });
+
+    //CHANGE CURSOR WHEN LOADING MAP
+    document.body.style.cursor = "wait";
 
     // ============  PARKING API ================= //
     const weekdayNum = new Date().getDay();
@@ -53,13 +57,18 @@ $(function() {
     const sthmlApiKey =
       "31be1dc0-8e91-41ff-b9f3-33fe1208c1d6&maxFeatures=" + maxFeatures;
     // ====== REQUEST YESTERDAY'S, TODAY'S, AND TOMORROWS INFO ==== //
-    importantDays.map(importantDay => {
+    importantDays.map((importantDay, i) => {
       $.ajax({
         type: "GET",
         url: firstStockUrl + importantDay.weekday + lastStockUrl + sthmlApiKey,
         dataType: "jsonp",
         async: false
       }).done(function(data) {
+        // change cursor to normal
+        if (i === importantDays.length - 1) {
+          document.body.style.cursor = "default";
+        }
+
         if (!data) {
           return;
         }
@@ -210,7 +219,6 @@ $(function() {
 
       coloredPath.setMap(map);
     }
-   
   }
 
   initMap();
