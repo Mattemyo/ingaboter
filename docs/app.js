@@ -187,35 +187,35 @@ $(function() {
         strokeOpacity: 0,
         strokeWeight: 0
       });
-      if (color === importantDays[3].color) {
-        animateRed();
-      } else {
-        coloredPath.set("strokeOpacity", 1.0);
-        coloredPath.set("strokeWeight", map.zoom > 14 ? map.zoom / 3 : 2);
-      }
+      // if (color === importantDays[3].color) {
+      //   animateRed();
+      // } else {
+      coloredPath.set("strokeOpacity", 1.0);
+      coloredPath.set("strokeWeight", map.zoom > 14 ? map.zoom / 3 : 2);
+      // }
       // ANIMATE ALL RED POLYLINES
 
-      function animateRed() {
-        let weight = 0;
-        let opacity;
-        let isGrowing = true;
-        window.setInterval(() => {
-          if (isGrowing) {
-            weight += 0.06;
-            if (weight > 2) {
-              isGrowing = !isGrowing;
-            }
-          } else {
-            weight -= 0.06;
-            if (weight < 0.7) {
-              isGrowing = !isGrowing;
-            }
-          }
+      // function animateRed() {
+      //   let weight = 0;
+      //   let opacity;
+      //   let isGrowing = true;
+      //   window.setInterval(() => {
+      //     if (isGrowing) {
+      //       weight += 0.06;
+      //       if (weight > 2) {
+      //         isGrowing = !isGrowing;
+      //       }
+      //     } else {
+      //       weight -= 0.06;
+      //       if (weight < 0.7) {
+      //         isGrowing = !isGrowing;
+      //       }
+      //     }
 
-          coloredPath.set("strokeOpacity", opacity || weight);
-          coloredPath.set("strokeWeight", weight * 2);
-        }, 10);
-      }
+      //     coloredPath.set("strokeOpacity", opacity || weight);
+      //     coloredPath.set("strokeWeight", weight * 2);
+      //   }, 10);
+      // }
 
       coloredPath.setMap(map);
     }
